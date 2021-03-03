@@ -10,6 +10,7 @@ import com.github.lgooddatepicker.components.TimePickerSettings;
 import com.github.lgooddatepicker.optionalusertools.PickerUtilities;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.DayOfWeek;
@@ -83,6 +84,9 @@ public class TimestampEditor implements IContextMenuFactory, ActionListener {
 
         DatePickerSettings dateSettings = new DatePickerSettings();
         dateSettings.setFirstDayOfWeek(DayOfWeek.MONDAY);
+        dateSettings.setVisibleClearButton(false);
+        dateSettings.setColor(DatePickerSettings.DateArea.TextMonthAndYearMenuLabels, Color.BLACK);
+        dateSettings.setColor(DatePickerSettings.DateArea.TextTodayLabel, Color.BLACK);
         TimePickerSettings timeSettings = new TimePickerSettings();
         timeSettings.setFormatForDisplayTime(
                 PickerUtilities.createFormatterFromPatternString("HH:mm:ss", timeSettings.getLocale())
