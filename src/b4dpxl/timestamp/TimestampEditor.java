@@ -41,8 +41,10 @@ public class TimestampEditor implements IContextMenuFactory, ActionListener {
         JMenuItem item = new JMenuItem("Edit timestamp");
         item.addActionListener(this);
 
-        if (extractTimestamp(invocation) != null) {
+        TimestampDate date = extractTimestamp(invocation);
+        if (date != null) {
             this.invocation = invocation;
+            item.setToolTipText(date.toString());
             item.setEnabled(true);
         } else {
             item.setEnabled(false);
