@@ -240,7 +240,9 @@ public class TimestampEditor implements IContextMenuFactory, ActionListener {
             if (ldt == null) {
                 return "";
             }
-            return DateTimeFormatter.RFC_1123_DATE_TIME.format(ldt.atZone(ZoneId.of("UTC")));
+            // Thu, 27 May 2021, 09:58:51 UTC
+//            return DateTimeFormatter.RFC_1123_DATE_TIME.format(ldt.atZone(ZoneId.of("UTC")));
+            return DateTimeFormatter.ofPattern("EE, dd LLL yyyy HH:mm:ss z").format(ldt.atZone(ZoneId.of("UTC")));
         }
     }
 
